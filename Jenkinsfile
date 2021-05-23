@@ -20,7 +20,9 @@ pipeline {
 		sh 'mvn package'
             }
 	} 
-	 agent { dockerfile true }
+	 agent {
+          dockerfile true 
+	     }
 	    stages('build'){
 		steps{
 		  sh 'docker.build' 	
