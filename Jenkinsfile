@@ -24,7 +24,7 @@ pipeline {
 		sh 'mvn package'
             }
 	} 
-	stages('build') {
+	stage('build') {
 	      steps {
 		dockerImage = docker.build registry 	
             }
