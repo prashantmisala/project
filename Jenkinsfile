@@ -1,7 +1,8 @@
 pipeline {
     agent any
 	
-    environment {	
+    environment {
+	  dockerfile = ''  
           dockerImage = ''
 	  registry = 'prashant1311/pro'
     }
