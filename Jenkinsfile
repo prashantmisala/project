@@ -19,11 +19,11 @@ pipeline {
                 echo 'packing....'
 		sh 'mvn package'
             }
-        }
-        stage('build'){
-            steps {
-                echo 'buiding..'
-                app = docker.build("tom")
+	} 
+	 agent { dockerfile true }
+	    stages('build){
+		steps{
+		  sh 'docker.build' 	
             }
         } 
     }    
