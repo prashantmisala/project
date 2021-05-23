@@ -23,7 +23,7 @@ pipeline {
         stage('build'){
             steps {
                 echo 'buiding..'
-                sh 'docker.build("tom")'
+                sh 'docker.build'
             }
         } 
     }    
