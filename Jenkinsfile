@@ -1,6 +1,10 @@
 pipeline {
     agent any
-
+    environment {	
+          dockerimage =''
+	  registry = 'prashant1311/pro'
+    }
+	
     stages {
         stage('Validate') {
             steps {
@@ -20,13 +24,10 @@ pipeline {
 		sh 'mvn package'
             }
 	} 
-	 agent {
-          dockerfile true 
-	     }
-	    stages('build'){
+	stages('build'){
 		steps{
-		  sh 'docker.build' 	
+		   dockerimage = docker.build registry 	
             }
         } 
-    }    
+    }     
 }
