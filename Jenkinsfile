@@ -21,7 +21,7 @@ pipeline {
             }
 	} 
 	 agent { dockerfile true }
-	    stages('build){
+	    stages('build'){
 		steps{
 		  sh 'docker.build' 	
             }
