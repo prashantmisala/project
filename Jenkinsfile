@@ -20,5 +20,11 @@ pipeline {
 		sh 'mvn package'
             }
         }
-    }
+        stage('build'){
+            steps {
+                echo 'buiding..'
+                sh 'docker.build("tom")'
+            }
+        } 
+    }    
 }
