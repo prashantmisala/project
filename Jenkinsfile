@@ -21,9 +21,9 @@ pipeline {
             }
         }
         stage('build'){
-            dockerfile {
+            steps {
                 echo 'buiding..'
-                filename 'Dockerfile'
+                app = docker.build("tom")
             }
         } 
     }    
