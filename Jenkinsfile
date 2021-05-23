@@ -1,5 +1,9 @@
 pipeline {
     agent any
+	 dockerfile {
+            filename 'Dockerfile'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
+        }
     environment {	
           dockerImage = ''
 	  registry = 'prashant1311/pro'
