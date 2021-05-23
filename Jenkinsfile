@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {	
-          dockerimage =''
+          docker/Image = ''
 	  registry = 'prashant1311/pro'
     }
 	
@@ -25,8 +25,8 @@ pipeline {
             }
 	} 
 	stages('build') {
-		steps {
-		   dockerimage = docker.build registry 	
+	      steps {
+		dockerImage = docker.build registry 	
             }
         } 
     }     
