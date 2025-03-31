@@ -10,20 +10,24 @@ pipeline {
         stage('Validate') {
             steps {
                 echo 'Validating..'
+	     withMaven {	    
 		sh 'mvn compile'
+                sh 'mvn test'
+		sh 'mvn package'     
+		
 		echo "${env.BRANCH_NAME}"
+	     }
             }
         }
         stage('Unit Test') {
             steps {
                 echo 'Testing..'
-		sh 'mvn test'
             }
         }
         stage('package') {
             steps {
                 echo 'packing....'
-		sh 'mvn package'
+		// sh 'mvn package'
             }
 	} 
 	// stage('build') {
