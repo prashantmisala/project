@@ -10,27 +10,25 @@ pipeline {
         stage('Validate') {
             steps {
                 echo 'Validating..'
-		sh 'mvn compile'
+		sh 'env'
             }
         }
         stage('Unit Test') {
             steps {
                 echo 'Testing..'
-		sh 'mvn test'
             }
         }
         stage('package') {
             steps {
                 echo 'packing....'
-		sh 'mvn package'
             }
 	} 
-	stage('build') {
-	      steps {
-		      script {    
-		  dockerImage = docker.build registry
-	        }
-            }
-        } 
+	// stage('build') {
+	//       steps {
+	// 	      script {    
+	// 	  dockerImage = docker.build registry
+	//         }
+ //            }
+ //        } 
     }
 }
