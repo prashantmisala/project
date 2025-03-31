@@ -11,6 +11,7 @@ pipeline {
             steps {
                 echo 'Validating..'
 		sh 'env'
+                echo "${env.BRANCH_NAME}"
             }
         }
         stage('Unit Test') {
